@@ -1,0 +1,20 @@
+[package]
+name = "soxr-sys"
+version = "0.1.3"
+authors = ["Olivia Trewin <trewinolivia@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+bindgen = "^0.54.0"
+cmake = { version = "0.1", optional = true }
+pkg-config = "^0.3.19"
+
+[features]
+# Statically link libsoxr. Requires a working build environment.
+static = [ "cmake" ]
+# Adjust the API to be a drop-in replacement for libsoxr-sys
+# You should not use this feature for new projects,
+# only when you need static linking in an old project
+compatibility = []
